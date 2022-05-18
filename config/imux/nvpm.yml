@@ -1,0 +1,11 @@
+
+root: /i/proj/nvpm/devl
+name: nvpm-development
+
+windows:
+- devl: d
+
+models:
+  d:
+    panes:
+      - nvim +'Zoom'
