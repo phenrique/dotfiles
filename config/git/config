@@ -1,0 +1,6 @@
+[user]
+	name  = phenrique
+  email = ph.cardoso10@gmail.com
+[alias]
+  uncommit = reset HEAD~
+  unstage = restore --staged

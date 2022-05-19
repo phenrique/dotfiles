@@ -1,1 +1,1 @@
-sleep 3 && picom -f -b --config /home/kuba/.config/picom/picom.conf
+sleep 1 && picom -f -b --config ~/.config/picom/picom.conf

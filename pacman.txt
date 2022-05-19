@@ -7,6 +7,7 @@ xclip
 cargo
 yarn
 npm
+feh
 i3-gaps
 polybar
 dunst
@@ -17,3 +18,10 @@ blueman
 network-manager-applet
 openvpn
 networkmanager-openvpn
+arandr
+alsa-utils
+pavucontrol
+python-yaml
+archlinux-java
+xkill
+fzf
