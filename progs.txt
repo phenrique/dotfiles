@@ -1,0 +1,15 @@
+alacritty  
+dconf  
+dunst  
+flameshot  
+git  
+i3  
+imux  
+lvim  
+picom  
+polybar  
+ranger  
+rofi  
+tmux  
+zathura
+keymapper.conf

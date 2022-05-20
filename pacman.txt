@@ -25,3 +25,4 @@ python-yaml
 archlinux-java
 xkill
 fzf
+xfce4-power-manager

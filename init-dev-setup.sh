@@ -1,31 +1,36 @@
 #!/bin/bash
 
 #imux
-#echo " - >>>>>>  Intall IMUX"
-#cd ~
-#git clone https://gitlab.com/iasj/imux
-#cd imux
-#sudo make install
-#
-#echo complete -W "$(ls ~/.config/imux)" imux >> ~/.bashrc
+imux (){
+    echo " - >>>>>>  Intall IMUX"
+    cd ~
+    git clone https://gitlab.com/iasj/imux
+    cd imux
+    sudo make install
 
-#insomnia
-#echo " - >>>>>>  Insomnia"
-#yay -S insomnia
-#
-##intellij
-#echo " - >>>>>>  Intellij"
-#sudo pacman -S intellij-idea-community
+    echo complete -W "$(ls ~/.config/imux)" imux >> ~/.bashrc
+}
 
-#java
-#echo " - >>>>>>  Java"
-#yay -S jdk-lts
-#yay -S jdk11
-#sudo arch-linux set jdk-lts
+insomnia (){
+    echo " - >>>>>>  Insomnia"
+    yay -S insomnia
+}
 
-#mvn
-#yay -S mvnvm
-#
+intellij (){
+    echo " - >>>>>>  Intellij"
+    sudo pacman -S intellij-idea-community
+}
+
+java (){
+    echo " - >>>>>>  Java JDK"
+    yay -S jdk11
+    sudo arch-linux set java-11-jdk
+}
+
+mvn (){
+    echo " - >>>>>>  MVM VM"
+    yay -S mvnvm
+}
 
 #tomcat
 tomcat (){
@@ -39,30 +44,46 @@ tomcat (){
 
 }
 
+docker (){
 
-#docker
-#sudo pacman -S docker
-#sudo tee /etc/modules-load.d/loop.conf <<< "loop"
-#sudo modprobe loop
-#
-#sudo systemctl start docker.service
-#sudo systemctl enable docker.service
-#sudo groupadd docker
-#sudo usermod -aG docker $USER
+    sudo pacman -S docker
+    sudo tee /etc/modules-load.d/loop.conf <<< "loop"
+    sudo modprobe loop
+    
+    sudo systemctl start docker.service
+    sudo systemctl enable docker.service
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+}
 
-#pgadmin4
+# -> pgadmin4
 # email : pgadmin@pgadmin.com senha: pgadmin
-#tomcat (){
-#
-#    echo " Installing - >>>>>>  Tomcat 9"
-#    cd ~
-#    sudo mkdir /var/lib/pgadmin
-#    sudo mkdir /var/log/pgadmin
-#    sudo chown $USER /var/lib/pgadmin
-#    sudo chown $USER /var/log/pgadmin
-#    python3 -m venv pgadmin4
-#    source pgadmin4/bin/activate
-#    pip install pgadmin4
-#}
+pgadmin4 (){
 
-tomcat 
+    echo " Installing - >>>>>>  Pgadmin4"
+    cd ~
+    sudo mkdir /var/lib/pgadmin
+    sudo mkdir /var/log/pgadmin
+    sudo chown $USER /var/lib/pgadmin
+    sudo chown $USER /var/log/pgadmin
+    python3 -m venv pgadmin4
+    source pgadmin4/bin/activate
+    pip install pgadmin4
+}
+
+
+mongocompass(){
+    echo " Installing - >>>>>>  Mongo Compass"
+    yay -S mongodb-compass
+}
+
+mongo(){
+    echo " Installing - >>>>>>  Mongo"
+    docker pull mongo 
+    docker run --name mongodb -v ~/.mongodb/data/db:/data/db -p 27017:27017 -d mongo 
+}
+
+# > run
+#tomcat 
+mongocompass
+mongo

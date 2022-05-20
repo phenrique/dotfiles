@@ -1,0 +1,21 @@
+root: ~/projects/matrix/neomatrix
+name: NeoMatrix
+
+windows:
+- Programs : programs
+- Matrix : matrix
+
+models:
+
+    programs:
+        layout: even-vertical
+        panes:
+        - idea
+        - /opt/insomnia/insomnia
+        - docker restart mongodb && mongodb-compass
+
+    matrix:
+        layout: even-vertical
+        panes:
+        - ranger
+

@@ -1,0 +1,37 @@
+root: ~/projects/matrix
+name: MatrixServices
+
+windows:
+- Programs : programs
+- PowerMatrix : powermatrix
+- MicServices : microservices
+- Notes : notes
+
+models:
+
+    programs:
+        layout: even-vertical
+        dir: microservices 
+        panes:
+        - idea
+        - /opt/insomnia/insomnia
+        - cd ~ && source pgadmin4/bin/activate && pgadmin4
+
+    powermatrix:
+        layout: even-vertical
+        dir: powermatrix 
+        panes:
+        - ranger
+        - docker-compose -f ./virtual-machine/docker-compose.yml up -d
+
+    microservices:
+        layout: even-vertical
+        dir: microservices 
+        panes:
+        - ranger
+        - docker-compose -f ./mic-configuration/docker-compose.yml up -d
+
+    notes:
+        layout: even-vertical
+        panes:
+        - ranger
