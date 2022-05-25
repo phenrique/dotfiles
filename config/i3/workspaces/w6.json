@@ -1,0 +1,24 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+        "height": 673,
+        "width": 1318,
+        "x": 24,
+        "y": 71
+    },
+    "marks": [],
+    "name": "Mountain - HassansBeats - Deezer",
+    "percent": 1,
+    "swallows": [
+        {
+            "class": "^Deezer$",
+            "instance": "^deezer$",
+            "machine": "^dev\\-machine$",
+            "window_role": "^browser\\-window$"
+        }
+    ],
+    "type": "con"
+}

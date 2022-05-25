@@ -83,7 +83,15 @@ mongo(){
     docker run --name mongodb -v ~/.mongodb/data/db:/data/db -p 27017:27017 -d mongo 
 }
 
+arduino(){
+  echo " Installing - >>>>>>  Arduino"
+  sudo pacman -S arduino arduino-avr-core arduino-cli
+  sudo usermod -aG uucp $USER
+  # install boards in arduino GUI interface
+}
+
 # > run
 #tomcat 
-mongocompass
-mongo
+#mongocompass
+#mongo
+arduino

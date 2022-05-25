@@ -15,44 +15,93 @@ lvim.colorscheme = "onedarker"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
+-- ├─ keymappings                         {
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
+
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+-- Esc
+lvim.keys.insert_mode["kj"] = "<esc>"
+lvim.keys.insert_mode["jk"] = "<esc>"
+lvim.keys.insert_mode["kk"] = "<esc>"
+lvim.keys.insert_mode["jj"] = "<esc>"
+
+-- Visual
+lvim.keys.normal_mode["mv"] = "<C-v>"
+lvim.keys.visual_mode["u"] = "<esc>"
+
+-- Save, exit, etc
+lvim.keys.normal_mode["<leader>x"] = ":x   <cr>"
+
+-- command line
+lvim.keys.normal_mode["mm"] = ":"
+lvim.keys.visual_mode["mm"] = ":"
+
+-- search
+lvim.keys.normal_mode["mf"] = "/"
+-- no search
+lvim.keys.normal_mode["m1"] = ":nohlsearch<cr><c-l>"
+
+-- Tagbar
+lvim.keys.visual_mode["mt"] = ":Tabularize /"
+
+
+local function arduino_status()
+  local ft = vim.api.nvim_buf_get_option(0, "ft")
+  if ft ~= "arduino" then
+    return ""
+  end
+  local port = vim.fn["arduino#GetPort"]()
+  local line = string.format("[%s]", vim.g.arduino_board)
+  if vim.g.arduino_programmer ~= "" then
+    line = line .. string.format(" [%s]", vim.g.arduino_programmer)
+  end
+  if port ~= 0 then
+    line = line .. string.format(" (%s:%s)", port, vim.g.arduino_serial_baud)
+  end
+  return line
+end
+
+local MY_FQBN = "arduino:avr:nano"
+
+local opts = {
+  cmd = {
+    "/usr/bin/arduino-language-server",
+    "-clangd", "/home/paulo/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd",
+    "-cli", "/usr/bin/arduino-cli",
+    --"-cli-daemon-addr", "localhost:50051",
+    --"-cli-daemon-instance", "1",
+    "-cli-config", "/home/paulo/.arduino15/arduino-cli.yaml",
+    "-fqbn",
+    MY_FQBN
+    --string.format("%s", vim.g.arduino_board)
+  }
+}
+require("lvim.lsp.manager").setup("arduino_language_server", opts)
+--require("lspconfig")["arduino_language_server"].setup(opts)
+
+--  local config = lualine.get_config()
+
+lvim.builtin.lualine.sections.lualine_y = { arduino_status }
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
--- }
+
+lvim.builtin.which_key.mappings["a"] = {
+  name = "+Arduino",
+  a = { " <cmd>ArduinoAttach           <CR> ", "ArduinoAttach          " },
+  m = { " <cmd>ArduinoVerify           <CR> ", "ArduinoVerify          " },
+  u = { " <cmd>ArduinoUpload           <CR> ", "ArduinoUpload          " },
+  d = { " <cmd>ArduinoUploadAndSerial  <CR> ", "ArduinoUploadAndSerial " },
+  b = { " <cmd>ArduinoChooseBoard      <CR> ", "ArduinoChooseBoard     " },
+  p = { " <cmd>ArduinoChooseProgrammer <CR> ", "ArduinoChooseProgrammer" },
+  i = { " <cmd>ArduinoInfo             <CR> ", "ArduinoInfo            " },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -144,13 +193,16 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+  { "godlygeek/tabular" },
+  { "rhysd/clever-f.vim" },
+  { "stevearc/vim-arduino" },
+  { "stevearc/dressing.nvim" },
+  --   {
+  --     "folke/trouble.nvim",
+  --     cmd = "TroubleToggle",
+  --   },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {

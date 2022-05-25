@@ -1,0 +1,82 @@
+// vim:ts=4:sw=4:et
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+        "height": 384,
+        "width": 684,
+        "x": 57,
+        "y": 78
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "user_on",
+            "geometry": {
+                "height": 711,
+                "width": 1330,
+                "x": 0,
+                "y": 0
+            },
+            "marks": [],
+            "name": "Controle de volume",
+            "percent": 1,
+            "swallows": [
+                {
+                    "class": "^Pavucontrol$",
+                    "instance": "^pavucontrol$",
+                    "machine": "^dev\\-machine$",
+                    "title": "^Controle\\ de\\ volume$"
+                }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+        "height": 349,
+        "width": 687,
+        "x": 625,
+        "y": 363
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "user_on",
+            "geometry": {
+                "height": 349,
+                "width": 687,
+                "x": 578,
+                "y": 374
+            },
+            "marks": [],
+            "name": "Bluetooth Devices",
+            "percent": 1,
+            "swallows": [
+                {
+                    "class": "^Blueman\\-manager$",
+                    "instance": "^blueman\\-manager$",
+                    "machine": "^dev\\-machine$",
+                    "title": "^Bluetooth\\ Devices$"
+                }
+            ],
+            "type": "con"
+        }
+    ]
+}

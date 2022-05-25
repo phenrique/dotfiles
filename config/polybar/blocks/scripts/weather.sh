@@ -5,10 +5,11 @@
 # API settings ________________________________________________________________
 
 APIKEY=`cat $HOME/.owm-key`
-CITY_NAME='Lodz'
-COUNTRY_CODE='PL'
+#CITY_NAME='Ananindeua'
+CITY_NAME='Osasco'
+COUNTRY_CODE='BR'
 # Desired output language
-LANG="en"
+LANG="pt_BR"
 # UNITS can be "metric", "imperial" or "kelvin". Set KNOTS to "yes" if you
 # want the wind in knots:
 

@@ -13,6 +13,7 @@ models:
         - idea
         - /opt/insomnia/insomnia
         - docker restart mongodb && mongodb-compass
+        - cd ~ && source pgadmin4/bin/activate && pgadmin4
 
     matrix:
         layout: even-vertical

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-progs='progs.txt'
-
-
 #backup config
 bkp () {
 

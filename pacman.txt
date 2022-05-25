@@ -26,3 +26,6 @@ archlinux-java
 xkill
 fzf
 xfce4-power-manager
+python-pynvim
+picocom
+perl-anyevent-i3
