@@ -29,3 +29,5 @@ xfce4-power-manager
 python-pynvim
 picocom
 perl-anyevent-i3
+w3m
+lxappearance

@@ -1,0 +1,401 @@
+# i3wm config by Paulo Nascimento
+#https://github.com/meh666ran/i3wmsolarized
+# Set Mod (Super)
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+# síntese sonora
+#bindsym $mod+F9 exec "xsel|espeak -v mb-en1 -s 100"
+bindsym F7 exec "xsel|festival --tts --pipe"
+
+#bindsym $mod+F12 exec "xbacklight -inc 5"
+#bindsym $mod+F11 exec "xbacklight -dec 5"
+
+
+# kill focused window
+bindsym Mod1+q kill
+
+# start dmenu (a program launcher that lunches from bin files)
+#bindsym $mod+d exec dmenu_run
+
+# bindsym $mod+d exec rofi -show drun ###### -matching fuzzy
+
+bindsym $mod+d       exec "rofi -show drun   -theme ~/.config/rofi/paulequilibrio.rasi "
+bindsym $mod+Shift+d exec "rofi -show window -theme ~/.config/rofi/paulequilibrio.rasi"
+
+ #bindsym Mod1+Tab exec rofi -show window
+# start demnu desktop (a programm luncher that lunches from .desktop files)
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+##### Configuração do Polkit agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+#exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2 -option caps:ctrl_modifier #,ir -option 'grp:alt_shift_toggle'
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier
+##
+
+exec --no-startup-id i3-msg 'workspace $WS1; exec nautilus'
+exec --no-startup-id i3-msg 'workspace $WS2; exec termite -e "tmux new-session initmux"'
+#exec --no-startup-id i3-msg 'workspace $WS3; exec firefox'
+exec --no-startup-id i3-msg 'workspace $WS3; exec brave'
+exec --no-startup-id i3-msg 'workspace $WS5; exec termite -e "tmux new-session mocp"'
+exec --no-startup-id i3-msg 'workspace $WS5; exec deezer'
+exec --no-startup-id i3-msg 'workspace $WS5; exec telegram'
+exec --no-startup-id i3-msg 'workspace $WS8; exec pavucontrol; exec blueman-manager'
+exec --no-startup-id goldendict 
+#exec --no-startup-id redshift 
+#exec --no-startup-id deezer 
+#exec --no-startup-id i3-msg 'workspace $WS7; exec kodi'
+
+# teste para reiniciar o sistema
+#
+bindsym crtl+mod1+del exec reboot
+
+# change focus
+bindsym $mod+i focus left
+bindsym $mod+o focus down
+bindsym $mod+p focus up
+bindsym $mod+semicolon focus right
+
+# change focus with arrow keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# move focused window with arrow keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#move focused workspace from other screen 
+bindsym $mod+Control+Left  move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+h     move workspace to output left 
+bindsym $mod+Control+l     move workspace to output right
+
+#define qual workspace fica em cada tela
+workspace "$WS1" output VGA1
+workspace "$WS2" output HDMI1
+workspace "$WS3" output HDMI1
+workspace "$WS4" output VGA1
+workspace "$WS5" output VGA1
+workspace "$WS6" output HDMI1
+workspace "$WS7" output HDMI1
+workspace "$WS8" output VGA1
+
+#control two screens
+#Programa mons para gerenciar duas telas
+bindsym $mod+Control+1 exec --no-startup-id mons -o # Somente primeira tela
+bindsym $mod+Control+2 exec --no-startup-id mons -s # Somente segunda tela
+bindsym $mod+Control+a exec --no-startup-id mons -e right # habilita a primeira tela na esquerda e a segunda na direita 
+bindsym $mod+Control+d exec --no-startup-id mons -m # espelha telas
+
+# split in horizontal orientation
+bindsym $mod+u split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $F11 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+bindsym $mod+Mod1+l workspace next
+bindsym $mod+Mod1+h workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
+
+# Workspaces Name
+set $WS1 1 Files   
+set $WS2 2 Coding Place 
+#set $WS3 3 Firefox   
+set $WS3 3 Brave   
+set $WS4 4 Telegram   
+set $WS5 5 Deezer   
+set $WS6 6 Dict   
+set $WS7 7 Games   
+set $WS8 8 Settings   
+set $WS9 9 9
+set $WS10 10 10
+
+# App Shortcuts
+bindsym XF86Tools exec urxvt -e mocp
+
+
+# Screenshot 
+bindsym --release Print exec flameshot full -c                       -p ~/Pictures/printscreens
+bindsym --release Shift + Print exec flameshot gui                   -p ~/Pictures/printscreens
+bindsym --release Ctrl + Shift + Print exec sleep 3 && flameshot gui -p ~/Pictures/printscreens
+
+## screenshot with scrot: if you want to use scrot uncomment this lines and comment top lines. (flameshot)
+#bindsym --release Print exec scrot /tmp/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+#bindsym --release Shift + Print exec scrot -s /tmp/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+#bindsym --release Alt + Print exec scrot -u /tmp/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+
+# Control MOC with keyboard multimedia keys 
+bindsym --release XF86AudioPlay exec mocp -G
+bindsym --release XF86AudioStop exec mocp -s 
+bindsym --release XF86AudioPrev exec mocp --previous      
+bindsym --release XF86AudioNext exec mocp --next  
+
+# Force Applications to Open in proper Workspace  
+#assign [class="Firefox"]    $WS3
+assign [class="Brave"]    $WS3
+assign [class="Telegram"]   $WS4
+assign [class="Deezer"]     $WS5
+assign [class="GoldenDict"] $WS6
+#assign [class="Kodi"]       $WS7
+assign [class="Citra"]       $WS7
+
+
+# Color Class               Border      BG         FG
+client.focused             #1793D0   #1793D0    #FFFFFF
+client.focused_inactive    #000000   #333333    #FFFFFF
+client.unfocused           #000000   #333333    #FFFFFF
+client.urgent              #FF0000   #FF0000    #FF0000
+# bar.focused                #1793D0   #000000    #FFFFFF
+# bar.unfocused              #333333   #000000    #FFFFFF
+# bar.urgent                 #FF0000 #000000 #FF0000
+
+
+
+
+# reload the config file
+bindsym $mod+Shift+c reload
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+# exit i3 (logout)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        #bindsym j resize shrink width 10 px or 10 ppt
+        #bindsym k resize grow height 10 px or 10 ppt
+        #bindsym l resize shrink height 10 px or 10 ppt
+        #bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	font pango:Vazir 10
+	colors {
+		background #0D3244
+		statusline #ffffff
+		separator  #ffffff
+		focused_workspace #0D3244 #0D3244 #ffffff
+		active_workspace  #444444 #444444 #ffffff
+		inactive_workspace #0D3244 #0D3244 #888888
+		urgent_workspace  #2f343a #900000 #ffffff
+		# bining_mode	  #2f343a #900000 #ffffff
+	}
+
+	strip_workspace_numbers yes
+	separator_symbol " | "
+        status_command i3blocks 
+	workspace_buttons no
+	position top
+}
+
+bar {
+        font pango:CaviarDreams Bold 11
+	colors {
+		background #001219
+		statusline #ffffff
+		separator  #ffffff
+		focused_workspace #001219 #001219 #6ABEE7
+		active_workspace  #444444 #444444 #6ABEE7
+		inactive_workspace #001219 #001219 #447C93
+		urgent_workspace  #2f343a #900000 #6ABEE7
+		# bining_mode	  #2f343a #900000 #6ABEE7
+	}
+
+	strip_workspace_numbers yes
+	workspace_buttons yes
+	position bottom
+        tray_output none
+}
+
+# Persian Keyboard Layout
+
+# Run i3 lock
+bindsym $mod+Shift+x exec i3lock --color "#444444"
+
+# focus settings
+#for_window [urgent="latest" class="Firefox"] focus
+
+## i3 gapps settings
+for_window [class="^.*"] border pixel 0
+gaps inner 10
+gaps outer 0
+smart_gaps on
+smart_borders on
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# Startup
+exec --no-startup-id nm-applet
+
+#exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/wallpaper.jpg 
+#Teste para um wllpr para duas telas
+exec --no-startup-id feh --bg-scale --no-xinerama ~/.config/i3/wallpapers/wallpaper.jpg 
+ 
+exec --no-startup-id parcellite
+exec --no-startup-id xrdb -load .Xresources
+#exec --no-startup-id conky -d
+#exec compton -b
+## if you want to change your wallpaper every one hour, copy your wallpapers to ~/.config/.i3/wallpapers and uncomment this line.
+## exec --no-startup-id ~/.config/i3/bin/wallpaperchange
+#if you want to auto mount removable disks, install udiskie package and uncomment this. 
+## exec --no-startup-id udiskie -a -t -F &
+
+
+# Volume Controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && twmnc -t "Volume mute"
+
+# Force some Applications Open floating as default
+#for_window [class="Telegram"] floating enable
+#for_window [class="vlc"] floating enable
+#for_window [class="Firefox"] floating enable
+#for_window [class="VirtualBox Manager"] floating enable
+for_window [class="feh"] floating enable
+
+# move windows to scratchpad and show it
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Force some windows to open with defined size
+for_window [class="Telegram"] # resize set 1820 980
+#for_window [class="Firefox" window_role="browser"] #resize set 1820 980
+
+# Force some windows to open in center
+#for_window [class="Firefox"] move absolute position center
+for_window [class="Telegram"] move absolute position center
+
+# Force citra layout
+for_window [class="Citra"] floating enable
+for_window [class="Citra"] resize set 2469 854
+for_window [class="Citra"] move absolute position 0 -29
+
+
+# move windows to center with $mod-c 
+bindsym $mod+c move absolute position center
+
+# dont show popup in fullscreen mode
+popup_during_fullscreen smart
+
+

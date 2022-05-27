@@ -1,1 +1,1 @@
-sleep 1 && picom -f -b --config ~/.config/picom/picom.conf --experimental-backends
+sleep 1 && picom -f -b --config ~/.config/picom/picom.conf

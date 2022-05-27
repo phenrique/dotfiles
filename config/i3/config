@@ -40,7 +40,7 @@ client.background       #242424
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id feh --bg-scale --no-xinerama ~/.config/i3/wall/wall-city.jpg 
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'exec nautilus'
+#exec --no-startup-id i3-msg 'exec nautilus'
 exec --no-startup-id i3-msg 'exec brave'
 exec --no-startup-id i3-msg 'exec telegram-desktop'
 exec --no-startup-id i3-msg 'exec deezer'
@@ -146,8 +146,8 @@ bindsym --release Print exec flameshot full -c                       -p ~/Pictur
 bindsym --release Shift + Print exec flameshot gui                   -p ~/Pictures/printscreens
 bindsym --release Ctrl + Shift + Print exec sleep 3 && flameshot gui -p ~/Pictures/printscreens
 
-assign [class="insomnia"] 1
-assign [class="mongodb compass"] 1
+assign [class="Insomnia"] 1
+assign [class="MongoDB Compass"] 1
 assign [class="jetbrains-idea-ce"] 3
 
 #assign [class="Telegram Desktop"] 4
