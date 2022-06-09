@@ -90,8 +90,31 @@ arduino(){
   # install boards in arduino GUI interface
 }
 
+flutter(){
+  echo " Installing - >>>>>>  Flutter"
+  #yay -S flutter
+  #sudo groupadd flutterusers
+  #sudo gpasswd -a $USER flutterusers
+  #sudo chown -R :flutterusers /opt/flutter
+  #sudo chmod -R g+w /opt/flutter/
+  #sudo chown -R $USER /opt/flutter
+
+
+
+  #yay -S android-sdk android-sdk-platform-tools android-sdk-build-tools
+  #yay -S android-platform sdkmanager
+
+  sudo groupadd android-sdk
+  sudo gpasswd -a $USER android-sdk
+  sudo setfacl -R -m g:android-sdk:rwx /opt/android-sdk
+  sudo setfacl -d -m g:android-sdk:rwX /opt/android-sdk
+}
+
+
 # > run
 #tomcat 
 #mongocompass
 #mongo
-arduino
+#arduino
+#flutter
+

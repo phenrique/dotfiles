@@ -31,3 +31,6 @@ picocom
 perl-anyevent-i3
 w3m
 lxappearance
+baobab
+autorandr
+python-pyserial
