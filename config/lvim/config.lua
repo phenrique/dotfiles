@@ -50,58 +50,9 @@ lvim.keys.normal_mode["m1"] = ":nohlsearch<cr><c-l>"
 -- Tagbar
 lvim.keys.visual_mode["mt"] = ":Tabularize /"
 
-
-local function arduino_status()
-  local ft = vim.api.nvim_buf_get_option(0, "ft")
-  if ft ~= "arduino" then
-    return ""
-  end
-  local port = vim.fn["arduino#GetPort"]()
-  local line = string.format("[%s]", vim.g.arduino_board)
-  if vim.g.arduino_programmer ~= "" then
-    line = line .. string.format(" [%s]", vim.g.arduino_programmer)
-  end
-  if port ~= 0 then
-    line = line .. string.format(" (%s:%s)", port, vim.g.arduino_serial_baud)
-  end
-  return line
-end
-
-local MY_FQBN = "arduino:avr:nano"
-
-local opts = {
-  cmd = {
-    "/usr/bin/arduino-language-server",
-    "-clangd", "/home/paulo/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd",
-    "-cli", "/usr/bin/arduino-cli",
-    --"-cli-daemon-addr", "localhost:50051",
-    --"-cli-daemon-instance", "1",
-    "-cli-config", "/home/paulo/.arduino15/arduino-cli.yaml",
-    "-fqbn",
-    MY_FQBN
-    --string.format("%s", vim.g.arduino_board)
-  }
-}
-require("lvim.lsp.manager").setup("arduino_language_server", opts)
---require("lspconfig")["arduino_language_server"].setup(opts)
-
---  local config = lualine.get_config()
-
-lvim.builtin.lualine.sections.lualine_y = { arduino_status }
-
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
-lvim.builtin.which_key.mappings["a"] = {
-  name = "+Arduino",
-  a = { " <cmd>ArduinoAttach           <CR> ", "ArduinoAttach          " },
-  m = { " <cmd>ArduinoVerify           <CR> ", "ArduinoVerify          " },
-  u = { " <cmd>ArduinoUpload           <CR> ", "ArduinoUpload          " },
-  d = { " <cmd>ArduinoUploadAndSerial  <CR> ", "ArduinoUploadAndSerial " },
-  b = { " <cmd>ArduinoChooseBoard      <CR> ", "ArduinoChooseBoard     " },
-  p = { " <cmd>ArduinoChooseProgrammer <CR> ", "ArduinoChooseProgrammer" },
-  i = { " <cmd>ArduinoInfo             <CR> ", "ArduinoInfo            " },
-}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -110,7 +61,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+--lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -203,8 +154,3 @@ lvim.plugins = {
   --     cmd = "TroubleToggle",
   --   },
 }
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }

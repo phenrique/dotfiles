@@ -1,6 +1,8 @@
 [user]
-	name  = phenrique
+  name  = phenrique
   email = ph.cardoso10@gmail.com
+  #name  = Paulo Nascimento
+  #email = pnascimento@bestpontos.com.br
 [alias]
   uncommit = reset HEAD~
   unstage = restore --staged

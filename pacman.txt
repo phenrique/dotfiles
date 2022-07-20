@@ -34,3 +34,6 @@ lxappearance
 baobab
 autorandr
 python-pyserial
+cura
+python-zeroconf
+python-libcharon
