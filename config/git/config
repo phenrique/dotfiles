@@ -1,8 +1,8 @@
 [user]
-  name  = phenrique
-  email = ph.cardoso10@gmail.com
-  #name  = Paulo Nascimento
-  #email = pnascimento@bestpontos.com.br
+  #name  = phenrique
+  #email = ph.cardoso10@gmail.com
+  name  = Paulo Nascimento
+  email = pnascimento@bestpontos.com.br
 [alias]
   uncommit = reset HEAD~
   unstage = restore --staged
@@ -11,3 +11,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[push]
+	autoSetupRemote = true

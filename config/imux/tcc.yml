@@ -1,0 +1,27 @@
+root: ~/projects
+name: TCC
+
+windows:
+- Embedded System : embedded
+- Server : server
+- Notes : notes
+
+models:
+
+    embedded:
+        layout: even-vertical
+        dir: arduino/esp32/asyncmqtt/main 
+        panes:
+        - ranger
+
+    server:
+        layout: even-vertical
+        dir: java/esp32-mqtt 
+        panes:
+        - ranger
+        - docker-compose up -d
+
+    notes:
+        layout: even-vertical
+        panes:
+        - ranger

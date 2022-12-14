@@ -7,10 +7,10 @@
     "marks": [],
     "percent": null,
     "rect": {
-        "height": 384,
-        "width": 684,
-        "x": 57,
-        "y": 78
+       "height": 453,
+       "width": 711,
+       "x": 1966,
+       "y": 295
     },
     "type": "floating_con",
     "nodes": [
@@ -19,21 +19,21 @@
             "current_border_width": 0,
             "floating": "user_on",
             "geometry": {
-                "height": 711,
-                "width": 1330,
-                "x": 0,
-                "y": 0
+               "height": 711,
+               "width": 1330,
+               "x": 0,
+               "y": 0
             },
             "marks": [],
             "name": "Controle de volume",
             "percent": 1,
             "swallows": [
-                {
-                    "class": "^Pavucontrol$",
-                    "instance": "^pavucontrol$",
-                    "machine": "^dev\\-machine$",
-                    "title": "^Controle\\ de\\ volume$"
-                }
+               {
+                "class": "^Pavucontrol$",
+                "instance": "^pavucontrol$",
+                "machine": "^dev\\-machine$",
+                "title": "^Controle\\ de\\ volume$"
+               }
             ],
             "type": "con"
         }
@@ -48,10 +48,10 @@
     "marks": [],
     "percent": null,
     "rect": {
-        "height": 349,
-        "width": 687,
-        "x": 625,
-        "y": 363
+       "height": 353,
+       "width": 651,
+       "x": 1415,
+       "y": 18
     },
     "type": "floating_con",
     "nodes": [
@@ -60,23 +60,24 @@
             "current_border_width": 0,
             "floating": "user_on",
             "geometry": {
-                "height": 349,
-                "width": 687,
-                "x": 578,
-                "y": 374
+               "height": 699,
+               "width": 1318,
+               "x": 24,
+               "y": 45
             },
             "marks": [],
-            "name": "Bluetooth Devices",
+            "name": "Dispositivos Bluetooth",
             "percent": 1,
             "swallows": [
-                {
-                    "class": "^Blueman\\-manager$",
-                    "instance": "^blueman\\-manager$",
-                    "machine": "^dev\\-machine$",
-                    "title": "^Bluetooth\\ Devices$"
-                }
+               {
+                "class": "^Blueman\\-manager$",
+                "instance": "^blueman\\-manager$",
+                "machine": "^dev\\-machine$",
+                "title": "^Dispositivos\\ Bluetooth$"
+               }
             ],
             "type": "con"
         }
     ]
 }
+

@@ -1,9 +1,10 @@
-root: ~/projects/matrix/neomatrix
+root: ~/projects/matrix
 name: NeoMatrix
 
 windows:
 - Programs : programs
-- Matrix : matrix
+- NeoMatrix : neomatrix
+- VirtualMachine : matrix
 
 models:
 
@@ -12,11 +13,20 @@ models:
         panes:
         - idea
         - /opt/insomnia/insomnia
-        - docker restart mongodb && mongodb-compass
+       #- docker restart mongodb && mongodb-compass
         - cd ~ && source pgadmin4/bin/activate && pgadmin4
 
     matrix:
         layout: even-vertical
+        dir: powermatrix 
         panes:
         - ranger
+        - docker-compose -f ./virtual-machine/docker-compose.yml up -d
+
+    neomatrix:
+        layout: even-vertical
+        dir: neomatrix 
+        panes:
+        - ranger
+        - docker-compose up -d
 

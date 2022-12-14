@@ -212,14 +212,14 @@ bindsym $mod+Mod1+l workspace next
 bindsym $mod+Mod1+h workspace prev
 
 #define qual workspace fica em cada tela
-workspace "1" output VGA1
-workspace "2" output HDMI1
-workspace "3" output HDMI1
-workspace "4" output VGA1
-workspace "5" output VGA1
-workspace "6" output HDMI1
-workspace "7" output HDMI1
-workspace "8" output VGA1
+workspace 1 output HDMI-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output HDMI-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
 
 #configura foco de urgencia
 focus_on_window_activation smart
