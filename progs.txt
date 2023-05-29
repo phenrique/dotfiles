@@ -6,7 +6,7 @@ flameshot
 git  
 i3  
 imux  
-lvim  
+nvim  
 picom  
 polybar  
 ranger  
