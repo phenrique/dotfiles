@@ -1,0 +1,28 @@
+root: ~/projects/inovah
+name: Inovah
+
+windows:
+- Programs : programs
+- inovah : inovah 
+- VirtualMachine : matrix
+
+models:
+
+    programs:
+        layout: even-vertical
+        panes:
+        - idea
+        - /opt/insomnia/insomnia
+        - cd ~ && source pgadmin4/bin/activate && pgadmin4
+
+    matrix:
+        layout: even-vertical
+        dir: ../matrix/powermatrix 
+        panes:
+        - ranger
+        - docker-compose -f ./virtual-machine/docker-compose.yml up -d
+
+    inovah:
+        layout: even-vertical
+        panes:
+        - ranger
