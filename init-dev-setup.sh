@@ -18,7 +18,7 @@ insomnia (){
 
 intellij (){
     echo " - >>>>>>  Intellij"
-    sudo pacman -S intellij-idea-community
+    sudo pacman -S intellij-idea-community-edition
 }
 
 java (){
@@ -112,9 +112,13 @@ flutter(){
 
 
 # > run
+#imux
+#java
+#intellij
+#insomnia
+#docker
 #tomcat 
-#mongocompass
-#mongo
 #arduino
 #flutter
+pgadmin4
 

@@ -1,5 +1,3 @@
 keymapper-git
-nerd-fonts-terminus
-nerd-fonts-fantasque-sans-mono
 flameshot
 mons

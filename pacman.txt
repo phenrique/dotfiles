@@ -8,11 +8,6 @@ cargo
 yarn
 npm
 feh
-i3-gaps
-polybar
-dunst
-picom
-jq
 bluez
 blueman
 network-manager-applet
@@ -27,13 +22,7 @@ xkill
 fzf
 xfce4-power-manager
 python-pynvim
-picocom
-perl-anyevent-i3
-w3m
-lxappearance
-baobab
 autorandr
 python-pyserial
-cura
 python-zeroconf
 python-libcharon
