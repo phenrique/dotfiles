@@ -5,7 +5,7 @@
 # API settings ________________________________________________________________
 
 APIKEY=`cat $HOME/.owm-key`
-CITY_NAME='Ananindeua'
+CITY_NAME='Belem'
 #CITY_NAME='Osasco'
 COUNTRY_CODE='BR'
 # Desired output language
